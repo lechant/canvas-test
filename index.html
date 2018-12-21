@@ -1,0 +1,58 @@
+<html>
+<head> 
+  <style>
+    canvas{
+	  border:1px solid black;
+	  float:left;
+	}
+	input{
+	  margin-top:10px;
+	}
+	form{
+	  float:left;
+	}
+	#display{
+	  float:left;
+	  width:100%;
+	}
+	#image_display{
+	  float:left;
+	  margin-left:10px;
+	}
+	#menu{
+	  border:1px solid black;
+	  float:right;
+	  width:200px;
+	  height:400px;
+	  position:sticky;
+	  top:10px;
+	  overflow:scroll;
+	}
+	.menus{
+	  width:100%;
+	  height:100%;
+	  background-color:black;
+	  border-bottom:1px solid white;
+	}
+  </style>
+</head>
+<body>
+   <div id="display">
+     <canvas width="400px" height="400px">
+       your browser does not support canvas please update your browser
+     </canvas>
+	 <div id="menu">
+	   <div class="menus"></div>
+	   <div class="menus"></div>
+	   <div class="menus"></div>
+	   <div class="menus"></div>
+	 </div>
+   </div>
+   <form>
+     Link:<input type="url" align="right" id="link_input"> or File:<input type="file" accept="image/*" id="image_upload_input" ></br>
+     Video:<input type="url" align="right"id="video_input">
+   </form>
+   <div id="image_display"></div>
+   <script src="canvasTest.js"></script>
+</body>
+</html>
