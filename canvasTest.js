@@ -2,6 +2,10 @@ var canvas = document.getElementsByTagName("canvas")[0];
 var context = canvas.getContext('2d');
 var coordinates = {X:[],Y:[]}; 
 var drawing = new Boolean(false);
+var line ={
+	width:5,
+	color:'#2ECC71'
+};
 
 function dragStart(event){
 	if(event.button == 0){
@@ -32,8 +36,8 @@ canvas.addEventListener("mouseout",function(){
 function draw(event){
 	context.beginPath();
     context.lineCap = 'round';
-    context.lineWidth =5;
-	context.strokeStyle = 'green';
+    context.lineWidth =line.width;
+	context.strokeStyle = line.color;
 	context.moveTo(coordinates.X, coordinates.Y);
     context.lineTo(event.clientX-canvas.offsetLeft,event.clientY-canvas.offsetTop);
     context.stroke();
@@ -67,3 +71,19 @@ function imageLoad(img){
 		context.drawImage(img, 0, 0);
     };
 }
+
+document.getElementById("color_input").addEventListener("change",function(){
+	line.color=document.getElementById("color_input").value;
+});
+document.getElementById("width_input").addEventListener("change",function(){
+	line.width=document.getElementById("width_input").value;
+	document.getElementById("text_width_input").value = line.width;
+});
+document.getElementById("text_width_input").addEventListener("change",function(){
+	line.width=document.getElementById("text_width_input").value;
+	document.getElementById("width_input").value = line.width;
+});
+document.getElementById("text_width_input").addEventListener("change",function(){
+	
+});
+
