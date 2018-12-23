@@ -24,12 +24,16 @@
 	  float:right;
 	  width:200px;
 	  height:400px;
-	  position:absolute;
+	  position:absolute; 
 	  right:10px;
 	  top:10px;
 	}
 	#text_width_input{
 	  width:30px;
+	}
+	#gradient_comfirm{
+	  margin:4px 6px 0 0;
+	  float:right;
 	}
   </style>
 </head>
@@ -39,12 +43,21 @@
        your browser does not support canvas please update your browser
      </canvas>
 	 <div id="menu">
-	    Linecolor:<input type="color" value="#2ECC71" id="color_input"></br>
+	    Linecolor:<input type="color" value="#2ECC71" id="color_input"> <button id="gradient_button">Gradient</button></br>
+		<div id="gradient_input" style="display:none;">
+		  Gradient colors:</br>
+		  <input type="color" id="gradient_color_input_1" value="#FF00FF">
+		  <input type="color" id="gradient_color_input_2" value="#0000FF">
+		  <input type="color" id="gradient_color_input_3" value="#FF0000">
+		  <button id="gradient_comfirm">OK</button>
+		</div>
+		<input type="text" value="#2ECC71" id="text_color_input"></br>
 	    Linewidth:<input type="range" min="0" max="100" value="5" id="width_input"><input type="text" value="5" id="text_width_input" ></br>
 	 </div>
    </div>
    <form>
      Link:<input type="url" align="right" id="link_input"> or File:<input type="file" accept="image/*" id="image_upload_input" ></br>
+     Video:<input type="url" align="right" id="video_input">
    </form>
    <div id="image_display"></div>
    <script src="canvasTest.js"></script>
