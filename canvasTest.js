@@ -37,7 +37,7 @@ function draw(event){
 	context.beginPath();
     context.lineCap = 'round';
     context.lineWidth =line.width;
-	context.strokeStyle = line.color;
+	context.strokeStyle =line.color;
 	context.moveTo(coordinates.X, coordinates.Y);
     context.lineTo(event.clientX-canvas.offsetLeft,event.clientY-canvas.offsetTop);
     context.stroke();
@@ -74,6 +74,11 @@ function imageLoad(img){
 
 document.getElementById("color_input").addEventListener("change",function(){
 	line.color=document.getElementById("color_input").value;
+	document.getElementById("text_color_input").value = line.color;
+});
+document.getElementById("text_color_input").addEventListener("change",function(){
+	line.color = document.getElementById("text_color_input").value;
+	document.getElementById("color_input").value = line.color;
 });
 document.getElementById("width_input").addEventListener("change",function(){
 	line.width=document.getElementById("width_input").value;
@@ -83,7 +88,35 @@ document.getElementById("text_width_input").addEventListener("change",function()
 	line.width=document.getElementById("text_width_input").value;
 	document.getElementById("width_input").value = line.width;
 });
-document.getElementById("text_width_input").addEventListener("change",function(){
-	
+document.getElementById("gradient_button").addEventListener("click",function(){
+	let gradientInputArea = document.getElementById("gradient_input");
+	if(gradientInputArea.style.height == "100px" ){
+		gradientInputArea.style.width ="";
+	    gradientInputArea.style.height ="";
+	    gradientInputArea.style.margin ="";
+	    gradientInputArea.style.border ="";
+	    gradientInputArea.style.boxSizing ="";
+		document.getElementById("text_color_input").style.display = "block";
+        gradientInputArea.style.display = "none";
+	}else{
+		gradientInputArea.style.width ="98%";
+	    gradientInputArea.style.height ="100px";
+	    gradientInputArea.style.margin ="5px 1% 5px 1%";
+	    gradientInputArea.style.border ="1px solid black";
+	    gradientInputArea.style.boxSizing ="border-box";
+		document.getElementById("text_color_input").style.display = "none";
+		gradientInputArea.style.display = "block";
+	}
 });
+document.getElementById("gradient_comfirm").addEventListener("click",function(){
+    let gradientColors=[];	
+	var gradient = context.createLinearGradient(0,0,400,0);
+	for(let i=1;i<=3;i++){
+	    gradientColors[i] = document.getElementById(`gradient_color_input_${i}`).value;
+		gradient.addColorStop((i/4),gradientColors[i]);
+    }
+	line.color = gradient;
+});
+
+
 
