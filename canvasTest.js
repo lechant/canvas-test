@@ -89,23 +89,24 @@ document.getElementById("text_width_input").addEventListener("change",function()
 	document.getElementById("width_input").value = line.width;
 });
 document.getElementById("gradient_button").addEventListener("click",function(){
+	console.log("clicked");
 	let gradientInputArea = document.getElementById("gradient_input");
 	if(gradientInputArea.style.height == "100px" ){
-		gradientInputArea.style.width ="";
+	    gradientInputArea.style.width ="";
 	    gradientInputArea.style.height ="";
 	    gradientInputArea.style.margin ="";
 	    gradientInputArea.style.border ="";
 	    gradientInputArea.style.boxSizing ="";
-		document.getElementById("text_color_input").style.display = "block";
+	    document.getElementById("text_color_input").style.display = "block";
         gradientInputArea.style.display = "none";
 	}else{
-		gradientInputArea.style.width ="98%";
+	    gradientInputArea.style.width ="98%";
 	    gradientInputArea.style.height ="100px";
 	    gradientInputArea.style.margin ="5px 1% 5px 1%";
 	    gradientInputArea.style.border ="1px solid black";
 	    gradientInputArea.style.boxSizing ="border-box";
-		document.getElementById("text_color_input").style.display = "none";
-		gradientInputArea.style.display = "block";
+	    document.getElementById("text_color_input").style.display = "none";
+	    gradientInputArea.style.display = "block";
 	}
 });
 document.getElementById("gradient_comfirm").addEventListener("click",function(){
@@ -117,8 +118,5 @@ document.getElementById("gradient_comfirm").addEventListener("click",function(){
     }
 	line.color = gradient;
 });
-
-
-
 
 
